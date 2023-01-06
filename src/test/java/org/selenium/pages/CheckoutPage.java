@@ -156,6 +156,7 @@ public class CheckoutPage extends BasePage {
     }
 
     private void enterUserNameFld(String username){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(userNameFld));
         driver.findElement(userNameFld).sendKeys(username);
     }
 
@@ -176,6 +177,7 @@ public class CheckoutPage extends BasePage {
      */
     public CheckoutPage loginSubmission(String username, String password){
         clickLoginLink();
+
         enterUserNameFld(username);
         enterPasswordFld(password);
         clickLoginSubmitBtn();

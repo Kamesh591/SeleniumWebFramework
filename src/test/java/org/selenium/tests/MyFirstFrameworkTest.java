@@ -54,7 +54,7 @@ public class MyFirstFrameworkTest extends BaseTest {
         BillingAddress billingAddress= JacksonUtils.deSerializeJSON("BillingAddress.json",BillingAddress.class);
         Products products= new Products(1215);
 
-        StorePage storePage = new HomePage(driver)
+        StorePage storePage = new HomePage(getDriver())
                 .load()
                 .clickStoreMenuLink()
                 .enterTextInsearchField("Blue")
@@ -91,7 +91,7 @@ public class MyFirstFrameworkTest extends BaseTest {
         User user= new User("Kamesh591", "Welcome123");
 
        // driver.get("https://askomdch.com/");
-        HomePage homePage = new HomePage(driver).load();
+        HomePage homePage = new HomePage(getDriver()).load();
         StorePage storePage = homePage.clickStoreMenuLink();
         storePage.enterTextInsearchField("Blue")
                 .clickSearchBtn();

@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class DriverManager {
 
-public WebDriver initilizeDriver(){
+public WebDriver initilizeDriver(String browser){
     //WebDriverManager.chromedriver().setup();
    // WebDriverManager.chromedriver().cachePath("Drivers").setup();
     //WebDriverManager.firefoxdriver().cachePath("Drivers").setup();
@@ -23,9 +23,9 @@ public WebDriver initilizeDriver(){
 
     //driver.get("https://askomdch.com/");
 
-    String browser=System.getProperty("browser","CHROME");
+    String localbrowser=System.getProperty("browser",browser);
 
-    switch (BrowserType.valueOf(browser)){
+    switch (BrowserType.valueOf(localbrowser)){
         case CHROME:
             WebDriverManager.chromedriver().cachePath("Drivers").setup();
             driver= new ChromeDriver();
