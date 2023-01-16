@@ -11,6 +11,7 @@ import org.selenium.pages.CartPage;
 import org.selenium.pages.CheckoutPage;
 import org.selenium.pages.HomePage;
 import org.selenium.pages.StorePage;
+import org.selenium.utils.ConfigLoader;
 import org.selenium.utils.JacksonUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -88,7 +89,8 @@ public class MyFirstFrameworkTest extends BaseTest {
     public void LoginAndCheckoutUsingBankTransfer() throws InterruptedException, IOException {
 
         BillingAddress billingAddress= JacksonUtils.deSerializeJSON("BillingAddress.json",BillingAddress.class);
-        User user= new User("Kamesh591", "Welcome123");
+        //User user= new User("Kamesh591", "Welcome123");
+        User user= new User(ConfigLoader.getInstance().getValue("userName"),ConfigLoader.getInstance().getValue("password") );
 
        // driver.get("https://askomdch.com/");
         HomePage homePage = new HomePage(getDriver()).load();

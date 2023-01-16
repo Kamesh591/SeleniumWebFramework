@@ -19,7 +19,7 @@ public class MyFirstTest {
     Command: setx PATH "%PATH%;C:\WebDriver\bin"
     Note: It's always recomended to restart your IDE after setting up an environment path to read the latest PATH variables
      */
-   /* @Test
+    @Test
     public void firstTest(){
         //System.setProperty("webdriver.driver.chromedriver","Chrome Driver path"); Here we did setup for Chrome Driver using Command: setx PATH "%PATH%;C:\WebDriver\bin"
         WebDriver driver = new ChromeDriver();
@@ -60,6 +60,8 @@ public class MyFirstTest {
         driver.findElement(By.cssSelector("#billing_postcode")).sendKeys("52334");
         driver.findElement(By.cssSelector("#billing_email")).sendKeys("james.ghruau@wucsdj.com");
         driver.findElement(By.cssSelector("button[name='woocommerce_checkout_place_order']")).click();
+
+
        String orderConfirmationText= driver.findElement(By.cssSelector(".woocommerce-order >p")).getText();
        Assert.assertEquals(orderConfirmationText,"Thank you. Your order has been received.");
        driver.quit();
@@ -106,5 +108,5 @@ public class MyFirstTest {
 
 
 
-    }*/
+    }
 }

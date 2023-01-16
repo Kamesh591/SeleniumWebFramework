@@ -23,8 +23,11 @@ public WebDriver initilizeDriver(String browser){
 
     //driver.get("https://askomdch.com/");
 
-    String localbrowser=System.getProperty("browser",browser);
 
+    String localbrowser=System.getProperty("browser",browser);
+    if (localbrowser==null){
+        localbrowser="CHROME";
+    }
     switch (BrowserType.valueOf(localbrowser)){
         case CHROME:
             WebDriverManager.chromedriver().cachePath("Drivers").setup();
@@ -39,8 +42,11 @@ public WebDriver initilizeDriver(String browser){
             driver= new EdgeDriver();
             break;
         default:
-                throw  new RuntimeException("Choose the correct Browser");
+               // throw  new RuntimeException("Choose the correct Browser");
                // break;
+            WebDriverManager.chromedriver().cachePath("Drivers").setup();
+            driver= new ChromeDriver();
+            break;
     }
 
     driver.manage().window().maximize();
